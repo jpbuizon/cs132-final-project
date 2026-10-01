@@ -47,7 +47,7 @@ export default function PortfolioPage() {
         </ul>
 
         <h3 className="text-xl font-medium mt-6 mb-2">Hypotheses</h3>
-        <div className="space-y-4 dark:text-gray-300 text-gray-700">
+        <div className="space-y-4 text-gray-700">
           <div className="bg-gray-50 p-3 rounded border border-gray-200">
             <p><strong>Hypothesis 1 (Regional Variation):</strong></p>
             <p><strong>H₀:</strong> There is no difference between the CPI rates of change across different Philippine regions.</p>
@@ -135,20 +135,10 @@ export default function PortfolioPage() {
           3. Raw Data Access
         </h2>
         <p className="mb-4 dark:text-gray-300 text-gray-700">
-          The full dataset extracted from PSA OpenStat is structured in the linked Google Sheet workbook.
+          The full dataset extracted from PSA OpenStat is structured in the linked <a target="_blank" className="hover:underline text-blue-600" href="https://docs.google.com/spreadsheets/d/1xKBvrqKmKKXB3nJWSXhC1xhRSfNOmXmITkU8WHeWlIQ/edit?usp=sharing">Google Sheet</a>.
         </p>
 
-        <div className="bg-blue-50 p-5 rounded-md border border-blue-200 shadow-sm">
-          <h3 className="font-semibold dark:text-blue-400 text-blue-900 mb-2">Dataset Repository</h3>
-          <a
-            href="https://docs.google.com/spreadsheets/d/1xKBvrqKmKKXB3nJWSXhC1xhRSfNOmXmITkU8WHeWlIQ/edit?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
-          >
-            📊 Open Google Sheets Data
-          </a>
-        </div>
+        <iframe className="w-full h-[50vh]" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSAJqxUApni8KAHvLUtbwlSPFTuILkT_NICD9B6DrVlnbdTQzf2W86OsJkcx864l_zvrq-D6jXRC9oh/pubhtml?gid=1478014109&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
       </section>
     </main>
   );
