@@ -1,69 +1,155 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function PortfolioPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="p-8 max-w-4xl mx-auto font-sans leading-relaxed text-gray-900">
+      {/* Header */}
+      <header className="mb-10">
+        <h1 className="text-4xl font-bold mb-2">CS 132 Data Collection Document</h1>
+        <p className="text-2xl font-semibold text-blue-700 mb-1">
+          Saan Aabot 20 PHP Mo? Regional CPI Analysis from 2018 to 1st Quarter 2026
+        </p>
+        <p className="text-lg text-gray-600">Group Name: Cornetto</p>
+        <p className="text-md text-gray-500">
+          Members: Bugaoan, Buizon, Calinawan, Magpantay
+        </p>
+        <p className="text-sm text-green-700 font-medium mt-1">
+          Target Alignment: SDG 8: Decent Work and Economic Growth
+        </p>
+      </header>
+
+      {/* 1. Research Overview Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
+          1. Research Overview
+        </h2>
+
+        <h3 className="text-xl font-medium mt-6 mb-2">Background</h3>
+        <p className="mb-4 text-gray-700">
+          The Consumer Price Index (CPI) serves as a relative measure of the cost of a standard basket of goods and services consumed by households. Calculated as a weighted average of these prices, the CPI establishes a baseline value of 100 for its starting year (2018). Tracking movements in regional CPI allows for a quantitative assessment of inflation, regional purchasing power disparities, and shifting costs of living across the Philippines.
+        </p>
+
+        <h3 className="text-xl font-medium mt-6 mb-2">Research Questions & Problems</h3>
+        <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+          <li>Which Philippine regions have the highest and lowest rates of change in CPI?</li>
+          <li>Which specific commodities have significantly differing CPI rates of change across Philippine regions?</li>
+          <li>Are there recurring seasonal patterns of prices of particular commodity groups?</li>
+          <li>Which time periods have the lowest and highest rates of change in CPI?</li>
+        </ul>
+
+        <h3 className="text-xl font-medium mt-6 mb-2">Research Objectives & Proposed Solutions</h3>
+        <p className="mb-3 text-gray-700">
+          To address these questions, this study will analyze historical monthly CPI data extracted from national statistical repositories using statistical analysis and exploratory data modeling. The core objectives are:
+        </p>
+        <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+          <li>Determine if geographic location is a significant factor for inflation rates, identifying which regions experience the fastest and slowest inflation rates from 2018 to 1st Quarter 2026.</li>
+          <li>Identify which specific commodity groups serve as primary drivers of CPI per region.</li>
+          <li>Determine if there are recurring seasonal patterns in the prices of certain commodity groups across regions.</li>
+          <li>Pinpoint the specific time periods corresponding to the fastest and slowest changes in national and regional CPI.</li>
+        </ul>
+
+        <h3 className="text-xl font-medium mt-6 mb-2">Hypotheses</h3>
+        <div className="space-y-4 text-gray-700">
+          <div className="bg-gray-50 p-3 rounded border border-gray-200">
+            <p><strong>Hypothesis 1 (Regional Variation):</strong></p>
+            <p><strong>H₀:</strong> There is no difference between the CPI rates of change across different Philippine regions.</p>
+            <p><strong>H₁:</strong> There are significant differences in the CPI rates of change across different Philippine regions.</p>
+          </div>
+
+          <div className="bg-gray-50 p-3 rounded border border-gray-200">
+            <p><strong>Hypothesis 2 (Temporal Variation):</strong></p>
+            <p><strong>H₀:</strong> There are no time periods of significantly different rates of change for CPI.</p>
+            <p><strong>H₁:</strong> There are time periods of significantly different rates of change for CPI.</p>
+          </div>
+
+          <div className="bg-gray-50 p-3 rounded border border-gray-200">
+            <p><strong>Hypothesis 3 (Commodity Differences):</strong></p>
+            <p><strong>H₀:</strong> There is no difference in commodity group CPI rates of change across Philippine Regions.</p>
+            <p><strong>H₁:</strong> There are significant differences in commodity group CPI rates of change across Philippine Regions.</p>
+          </div>
+
+          <div className="bg-gray-50 p-3 rounded border border-gray-200">
+            <p><strong>Hypothesis 4 (Seasonality):</strong></p>
+            <p><strong>H₀:</strong> There are no recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
+            <p><strong>H₁:</strong> There are recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Data Collection Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
+          2. Data Collection Process
+        </h2>
+
+        {/* USE LATER
+        <div className="bg-gray-50 p-4 rounded-md border border-gray-200 mb-6">
+          <p className="text-sm text-gray-600 mb-2">
+            <em>Optional external documentation link:</em>
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="TEST MUNA"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-blue-600 hover:underline font-medium"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            📄 View Full Data Collection Google Doc
           </a>
         </div>
-      </main>
-    </div>
+        */}
+
+        <h3 className="text-xl font-medium mt-4 mb-2">Dataset Description & Scope</h3>
+        <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-1">
+          <li><strong>Source:</strong> OpenStat — Philippine Statistics Authority (PSA)</li>
+          <li><strong>Temporal Scope:</strong> January 2018 to 1st Quarter 2026</li>
+          <li><strong>Baseline Year:</strong> 2018 = 100</li>
+          <li><strong>Collection Method:</strong> Public database extraction</li>
+        </ul>
+
+        <h3 className="text-xl font-medium mt-4 mb-2">PSA Collection Methodology & Sampling</h3>
+        <ul className="list-disc pl-6 mb-4 text-gray-700 space-y-2">
+          <li>
+            <strong>Market Basket Selection:</strong> The PSA monitors a representative "market basket" consisting of goods and services commonly consumed by average households and consistently available within target localities.
+          </li>
+          <li>
+            <strong>On-the-Ground Price Collectors:</strong> Up to six trained enumerators per province physically survey sample retail outlets, local public markets, and commercial establishments.
+          </li>
+          <li>
+            <strong>Collection Timing:</strong> In-person gathering targets peak marketing hours—typically before 10:00 AM—to ensure consistent transaction observations.
+          </li>
+          <li>
+            <strong>Bi-Weekly Survey Phases:</strong> Price monitoring is executed in two survey rounds monthly, with provincial data processed around the 17th and 30th of each month.
+          </li>
+          <li>
+            <strong>Validation and Processing:</strong> Collected price indexes pass through a multi-tier verification process across provincial, regional, and central PSA offices.
+          </li>
+        </ul>
+
+        <h3 className="text-xl font-medium mt-4 mb-2">Preprocessing & Data Structure</h3>
+        <p className="mb-4 text-gray-700">
+          The extracted dataset contains multi-index time-series rows organized by geographic location (National, NCR, and Areas Outside NCR / individual administrative regions) and commodity breakdown (All-Items, Food and Non-Alcoholic Beverages, Cereals, etc.) across monthly intervals. Preprocessing steps will include reshaping wide monthly columns into long format, checking for missing entries across administrative shifts, and calculating period-over-period percentage changes to measure inflation velocity.
+        </p>
+      </section>
+
+      {/* 3. Raw Data Access Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
+          3. Raw Data Access
+        </h2>
+        <p className="mb-4 text-gray-700">
+          The full dataset extracted from PSA OpenStat is structured in the linked Google Sheet workbook.
+        </p>
+
+        <div className="bg-blue-50 p-5 rounded-md border border-blue-200 shadow-sm">
+          <h3 className="font-semibold text-blue-900 mb-2">Dataset Repository</h3>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1xKBvrqKmKKXB3nJWSXhC1xhRSfNOmXmITkU8WHeWlIQ/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+          >
+            📊 Open Google Sheets Data
+          </a>
+        </div>
+      </section>
+    </main>
   );
 }
