@@ -107,19 +107,19 @@ export default function PortfolioPage() {
         <h3 className="text-xl font-medium mt-4 mb-2">PSA Collection Methodology & Sampling</h3>
         <ul className="list-disc pl-6 mb-4 dark:text-gray-300 text-gray-700 space-y-2">
           <li>
-            <strong>Market Basket Selection:</strong> The PSA monitors a representative "market basket" consisting of goods and services commonly consumed by average households and consistently available within target localities.
+            <strong>Market Basket Selection:</strong> The PSA tracks a specific "market basket" of goods and services that are regularly consumed by average households and consistently available in the target area.
           </li>
           <li>
-            <strong>On-the-Ground Price Collectors:</strong> Up to six trained enumerators per province physically survey sample retail outlets, local public markets, and commercial establishments.
+            <strong>Price Collectors:</strong> Philippine Statistics Authority (PSA) field personnel gather prices directly from sample retail outlets using an Android-based Computer-Assisted Personal Interviewing (CAPI) app.
           </li>
           <li>
-            <strong>Collection Timing:</strong> In-person gathering targets peak marketing hours—typically before 10:00 AM—to ensure consistent transaction observations.
+            <strong>Collection Timing (NCR):</strong> To maintain a reasonable degree of consistency, data gathering targets the time of day when most household marketing is done, usually before 10:00 AM.
           </li>
           <li>
-            <strong>Bi-Weekly Survey Phases:</strong> Price monitoring is executed in two survey rounds monthly, with provincial data processed around the 17th and 30th of each month.
+            <strong>Collection Timing (Provincial Areas):</strong> Data is collected twice a month (1st–5th and 15th–17th days). The first phase gathers six price quotes, while the second gathers two.
           </li>
           <li>
-            <strong>Validation and Processing:</strong> Collected price indexes pass through a multi-tier verification process across provincial, regional, and central PSA offices.
+            <strong>Validation and Processing:</strong> The collected data undergoes multiple validation stages involving provincial, regional, and central PSA offices.
           </li>
         </ul>
 
