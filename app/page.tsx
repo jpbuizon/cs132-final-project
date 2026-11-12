@@ -140,6 +140,106 @@ export default function PortfolioPage() {
 
         <iframe className="w-full h-[50vh]" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSAJqxUApni8KAHvLUtbwlSPFTuILkT_NICD9B6DrVlnbdTQzf2W86OsJkcx864l_zvrq-D6jXRC9oh/pubhtml?gid=1478014109&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
       </section>
+
+      {/* 4. Data Visualizations & Analysis Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
+          4. Data Visualizations
+        </h2>
+        
+        {/* Research Question 1 */}
+        <div className="mb-10">
+          <h3 className="text-xl font-medium mb-4 text-blue-800">
+            RQ1: Which Philippine regions have the highest and lowest rates of change in CPI?
+          </h3>
+          
+          <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-6">
+            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              Monthly Inflation Velocity (CPI % Change) - Selected Individual Regions (2018-2026)
+            </h4>
+            <img 
+              src="/rq1-line-chart.jpg" 
+              alt="Line chart showing monthly inflation velocity across regions" 
+              className="w-full h-auto rounded"
+            />
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              Figure 1: Time-series analysis of month-over-month CPI percentage changes across administrative regions.
+            </p>
+          </div>
+
+          <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              Top 5 Highest and Lowest Regions by Average MoM Inflation Velocity
+            </h4>
+            <img 
+              src="/rq1-bar-chart.jpg" 
+              alt="Bar chart showing top 5 highest and lowest regions by average MoM inflation velocity" 
+              className="w-full h-auto rounded"
+            />
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              Figure 2: A horizontal bar chart highlighting the geographic areas with the most and least volatile average inflation velocities.
+            </p>
+          </div>
+        </div>
+
+        {/* Research Question 2 */}
+        <div className="mb-10 mt-10">
+          <h3 className="text-xl font-medium mb-4 text-blue-800">
+            RQ2: Which specific commodities have significantly differing CPI rates of change across Philippine regions?
+          </h3>
+          
+          <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              Regional Inflation Drivers: Average MoM Velocity by Major Commodity Group
+            </h4>
+            <img 
+              src="/rq2-heatmap-drivers.jpg" 
+              alt="Heatmap displaying regional inflation drivers by average MoM velocity across commodity groups" 
+              className="w-full h-auto rounded"
+            />
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              Figure 3: Heatmap illustrating which commodity groups (e.g., Food, Transport) act as the primary drivers of month-over-month inflation within specific regions.
+            </p>
+          </div>
+        </div>
+
+        {/* Research Question 3 */}
+        <div className="mb-10 mt-10">
+          <h3 className="text-xl font-medium mb-4 text-blue-800">
+            RQ3: Are there recurring seasonal patterns of prices of particular commodity groups?
+          </h3>
+          
+          <div className="grid grid-cols-1 gap-6">
+            <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+                Seasonality Heatmap: Average Monthly Inflation Velocity by Commodity Group
+              </h4>
+              <img 
+                src="/rq3-heatmap-seasonality.jpg" 
+                alt="Heatmap displaying average monthly inflation velocity by commodity group across the calendar year" 
+                className="w-full h-auto rounded"
+              />
+              <p className="text-sm text-gray-500 mt-3 text-center">
+                Figure 4: Average MoM % change organized by calendar month to identify recurring seasonal price spikes across different commodity groups.
+              </p>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+                Outlier-Resistant Seasonality Heatmap (Ordered by Seasonality Strength)
+              </h4>
+              <img 
+                src="/rq3-heatmap-seasonality-outlier.jpg" 
+                alt="Outlier-resistant seasonality heatmap ordered by seasonality strength" 
+                className="w-full h-auto rounded"
+              />
+              <p className="text-sm text-gray-500 mt-3 text-center">
+                Figure 5: A median-based seasonality heatmap that mitigates the effect of extreme outliers, sorted vertically from most seasonal to least seasonal commodity groups.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
