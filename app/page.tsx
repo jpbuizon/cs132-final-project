@@ -135,7 +135,7 @@ export default function PortfolioPage() {
           3. Raw Data Access
         </h2>
         <p className="mb-4 dark:text-gray-300 text-gray-700">
-          The full dataset extracted from PSA OpenStat is structured in the linked <a target="_blank" className="hover:underline text-blue-600" href="https://docs.google.com/spreadsheets/d/1xKBvrqKmKKXB3nJWSXhC1xhRSfNOmXmITkU8WHeWlIQ/edit?usp=sharing">Google Sheet</a>.
+          The full dataset extracted from PSA OpenStat is structured in the linked <a target="_blank" className="hover:underline text-blue-600" href="https://docs.google.com/spreadsheets/d/1y2uXdRVz_6OgY_Tpw0D_Xo4CNo-W4QW6uuOzUe6kRF8/edit?usp=sharing">Google Sheet</a>.
         </p>
 
         <iframe className="w-full h-[50vh]" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSAJqxUApni8KAHvLUtbwlSPFTuILkT_NICD9B6DrVlnbdTQzf2W86OsJkcx864l_zvrq-D6jXRC9oh/pubhtml?gid=1478014109&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
