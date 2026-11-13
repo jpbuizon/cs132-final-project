@@ -273,12 +273,12 @@ export default function PortfolioPage() {
                 Monthly Inflation Velocity (CPI % Change) - All Items (2018-2026)
               </h4>
               <img 
-                src="/rq4-macro-line-chart.png" 
+                src="//rq1-bar-chart.jpg" 
                 alt="Line chart showing macro monthly inflation velocity for NCR, AONCR, and National levels" 
                 className="w-full h-auto rounded"
               />
               <p className="text-sm text-gray-500 mt-3 text-center">
-                Figure 6: A macro-level time-series line chart comparing the month-over-month inflation velocities between the National Capital Region (NCR), Areas Outside NCR (AONCR), and the overall Philippine national average.
+                Figure 6: A macro-level time-series line chart comparing the month-over-month inflation velocities between Philippine regions.
               </p>
             </div>
 
@@ -287,7 +287,7 @@ export default function PortfolioPage() {
                 Inflation Velocity Extremes (Lowest and Highest 5 MoM Changes)
               </h4>
               <img 
-                src="/rq4-extremes-bar-chart.png" 
+                src="/rq4-extremes-bar-chart.jpg" 
                 alt="Bar charts showing the top 5 highest and lowest time periods for inflation velocity" 
                 className="w-full h-auto rounded"
               />
