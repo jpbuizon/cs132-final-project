@@ -184,7 +184,7 @@ export default function PortfolioPage() {
             </h4>
             <div className="w-full relative h-[300px]">
             <Image
-              src="/rq1-line-chart.jpg" 
+              src="/cs132-final-project/rq1-line-chart.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
@@ -202,7 +202,7 @@ export default function PortfolioPage() {
 
             <div className="w-full relative h-[300px]">
             <Image
-              src="/rq1-bar-chart.jpg" 
+              src="/cs132-final-project/rq1-bar-chart.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
@@ -229,7 +229,7 @@ export default function PortfolioPage() {
             
             <div className="w-full relative h-[300px]">
             <Image
-              src="/rq2-heatmap-drivers.jpg" 
+              src="/cs132-final-project/rq2-heatmap-drivers.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
@@ -257,7 +257,7 @@ export default function PortfolioPage() {
 
             <div className="w-full relative h-[300px]">
             <Image
-              src="/rq3-heatmap-seasonality.jpg" 
+              src="/cs132-final-project/rq3-heatmap-seasonality.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
@@ -276,7 +276,7 @@ export default function PortfolioPage() {
 
             <div className="w-full relative h-[300px]">
             <Image
-              src="/rq3-heatmap-seasonality-outlier.jpg" 
+              src="/cs132-final-project/rq3-heatmap-seasonality-outlier.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
@@ -305,7 +305,7 @@ export default function PortfolioPage() {
 
             <div className="w-full relative h-[600px]">
             <Image
-              src="/rq4-extremes-bar-chart.jpg" 
+              src="/cs132-final-project/rq4-extremes-bar-chart.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
@@ -331,7 +331,7 @@ export default function PortfolioPage() {
 
             <div className="w-full relative h-[600px]">
             <Image
-              src="/nutshell.png" 
+              src="/cs132-final-project/nutshell.png" 
               alt="Line chart showing monthly inflation velocity across regions" 
               fill
               objectFit="contain"
