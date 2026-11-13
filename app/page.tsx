@@ -1,25 +1,48 @@
+import { IceCream } from "lucide-react"
+import Link from "next/link";
+
 export default function PortfolioPage() {
   return (
-    <main className="p-8 max-w-4xl mx-auto font-sans leading-relaxed dark:text-white text-gray-900">
-      {/* Header */}
-      <header className="mb-10">
-        <h1 className="text-4xl font-bold mb-2">CS 132 Data Collection Document</h1>
-        <p className="text-2xl font-semibold dark:text-blue-400 text-blue-700 mb-1">
-          Saan Aabot 20 PHP Mo? Regional CPI Analysis from 2018 to 1st Quarter 2026
-        </p>
-        <p className="text-lg dark:text-gray-300 text-gray-600">Group Name: Cornetto</p>
-        <p className="text-md dark:text-gray-300 text-gray-500">
-          Members: Bugaoan, Buizon, Calinawan, Magpantay
-        </p>
-        <p className="text-sm text-green-700 font-medium mt-1">
-          Target Alignment: SDG 8: Decent Work and Economic Growth
-        </p>
-      </header>
+    <main className="font-sans leading-relaxed dark:text-white text-gray-900">
+      {/* Navbar */}
+      <div className="relative flex flex-row sticky top-0 w-full h-[64px] gap-2 px-4 md:px-6 z-[100] items-center bg-black/[25%] backdrop-blur-lg border border-solid border-x-0 border-t-0 border-b-[1px] shadow-sm border-border justify-between">
+        <div className="flex flex-row gap-2 items-center">
+          <div className="rounded-full p-[6px] bg-highlight/[20%]"><IceCream className="-rotate-45"/></div>
+          <span>Cornetto</span>
+        </div>
 
-      {/* 1. Research Overview Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
-          1. Research Overview
+        <div className="w-fit flex flex-row items-center gap-4 absolute top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%]">
+          <Link href="#overview" className="hover:text-highlight/[80%] transition-basic">Project Overview</Link>
+          <Link href="#data" className="hover:text-highlight/[80%] transition-basic">Dataset</Link>
+          <Link href="#eda" className="hover:text-highlight/[80%] transition-basic">EDA</Link>
+          <Link href="#hypotest" className="hover:text-highlight/[80%] transition-basic">Hypothesis Testing</Link>
+        </div>
+        <span className="text-xs">Bugaoan, Buizon, Calinawan, Magpantay</span>
+      </div>
+
+      {/* Hero Section */}
+      <div className="relative h-[100vh] w-full flex flex-col md:items-center gap-2 justify-center pb-32 px-4 md:px-6">
+        {/* Grid */}
+        <div
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, #9cafb7 1px, transparent 1px), linear-gradient(to bottom, #9cafb7 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+        }}
+      />
+
+        <span className="rounded-full w-fit px-4 py-1 text-sm bg-highlight/[5%] border border-solid border-border">SDG 8: Decent Work and Economic Growth</span>
+        <span className="text-4xl md:text-7xl font-black font-mono md:text-center">&quot;Hanggang saan aabot ang <span className="text-highlight">20 pesos</span> mo?&quot;</span>
+        <span className="mt-4 text-xl md:text-2xl tracking-wide">Regional CPI Analysis from 2018 to 1st Quarter 2026</span>
+        
+      </div>
+
+      {/* Project Overview Section */}
+      <section className="relative mb-12 px-4 md:px-6 py-4">
+        <div className="absolute -top-[72px]" id="overview"/>
+        <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
+          Project Overview
         </h2>
 
         <h3 className="text-xl font-medium mt-6 mb-2">Background</h3>
@@ -74,10 +97,11 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* 2. Data Collection Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
-          2. Data Collection Process
+      {/* Data Section */}
+      <section className="relative mb-12 px-4 md:px-6 py-4">
+        <div className="absolute -top-[72px]" id="data"/>
+        <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
+          Data Collection Process
         </h2>
 
         {/* USE LATER
@@ -127,24 +151,21 @@ export default function PortfolioPage() {
         <p className="mb-4 dark:text-gray-300 text-gray-700">
           The extracted dataset contains multi-index time-series rows organized by geographic location (National, NCR, and Areas Outside NCR / individual administrative regions) and commodity breakdown (All-Items, Food and Non-Alcoholic Beverages, Cereals, etc.) across monthly intervals. Preprocessing steps will include reshaping wide monthly columns into long format, checking for missing entries across administrative shifts, and calculating period-over-period percentage changes to measure inflation velocity.
         </p>
-      </section>
 
-      {/* 3. Raw Data Access Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
-          3. Raw Data Access
-        </h2>
         <p className="mb-4 dark:text-gray-300 text-gray-700">
           The full dataset extracted from PSA OpenStat is structured in the linked <a target="_blank" className="hover:underline text-blue-600" href="https://docs.google.com/spreadsheets/d/1y2uXdRVz_6OgY_Tpw0D_Xo4CNo-W4QW6uuOzUe6kRF8/edit?usp=sharing">Google Sheet</a>.
         </p>
 
-        <iframe className="w-full h-[50vh]" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSAJqxUApni8KAHvLUtbwlSPFTuILkT_NICD9B6DrVlnbdTQzf2W86OsJkcx864l_zvrq-D6jXRC9oh/pubhtml?gid=1478014109&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        <iframe className="w-full h-[50vh]" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRqfwWoGccUkJqrafQJR9hxblTia0VoJ-_6lzZ5nAGk4ejiMHgnFy7Pqnc9wpBLuAJGHyrCw1Xh8leN/pubhtml?widget=true&amp;headers=false"></iframe>
+      
       </section>
 
-      {/* 4. Data Visualizations & Analysis Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4 border-b-2 border-gray-200 pb-2">
-          4. Data Visualizations
+
+      {/* EDA Section */}
+      <section className="relative mb-12 px-4 md:px-6 py-4">
+        <div className="absolute -top-[72px]" id="eda"/>
+        <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
+          Exploratory Data Analysis
         </h2>
         
         {/* Research Question 1 */}
@@ -298,10 +319,14 @@ export default function PortfolioPage() {
           </div>
         </div>
 
-        {/* 5. Hypotheses Testing Section */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-6 border-b-2 border-gray-200 pb-2">
-          5. Hypotheses Testing
+      </section>
+
+
+        {/* Hypotheses Testing Section */}
+      <section className="relative mb-12 px-4 md:px-6 py-4">
+        <div className="absolute -top-[72px]" id="hypotest"/>
+        <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
+          Hypotheses Testing
         </h2>
         <p className="mb-6 text-gray-700">
           Due to the non-normal distribution of our inflation velocity data, we utilized the Kruskal-Wallis H-test (a non-parametric equivalent to ANOVA) across all hypotheses to determine statistical significance at an alpha level of 0.05.
@@ -378,7 +403,6 @@ export default function PortfolioPage() {
           </div>
 
         </div>
-      </section>
       </section>
     </main>
   );
