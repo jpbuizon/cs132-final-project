@@ -335,16 +335,16 @@ export default function PortfolioPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           {/* Hypothesis 1 */}
-          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
             <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 1: Regional Variation</h3>
             <div className="text-sm text-gray-700 space-y-2 mb-4">
               <p><strong>H₀:</strong> There is no difference between the CPI rates of change across different Philippine regions.</p>
               <p><strong>H₁:</strong> There are significant differences in the CPI rates of change across different Philippine regions.</p>
             </div>
-            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800 flex-grow">
               <p>Test: Kruskal-Wallis H-test</p>
-              <p>H-Statistic: 46.7930</p>
-              <p>P-Value: 0.9999999996959154</p>
+              <p>H-Statistic: 3.8930</p>
+              <p>P-Value: 0.99991380</p>
             </div>
             <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 font-medium text-sm">
               Verdict: Fail to reject H₀. No significant difference across regions.
@@ -352,57 +352,130 @@ export default function PortfolioPage() {
           </div>
 
           {/* Hypothesis 2 */}
-          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
             <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 2: Temporal Variation</h3>
             <div className="text-sm text-gray-700 space-y-2 mb-4">
               <p><strong>H₀:</strong> There are no time periods of significantly different rates of change for CPI.</p>
               <p><strong>H₁:</strong> There are time periods of significantly different rates of change for CPI.</p>
             </div>
-            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800 flex-grow">
               <p>Test: Kruskal-Wallis H-test (Grouped by Year)</p>
-              <p>H-Statistic: 745.6781</p>
-              <p>P-Value: 1.042e-155</p>
+              <p>H-Statistic: 194.1263</p>
+              <p>P-Value: 1.102e-37</p>
             </div>
             <div className="mt-4 p-3 bg-green-50 border-l-4 border-green-500 text-green-700 font-medium text-sm">
               Verdict: Reject H₀. There are time periods with significantly different rates of change.
             </div>
+            {/* Dunn's Test Results for H2 */}
+            <div className="mt-4 p-3 bg-purple-50 border border-purple-200 rounded text-sm text-purple-900">
+              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni):</p>
+              <p className="text-xs mb-1">Significant temporal differences (adj. p &lt; 0.05) include:</p>
+              <ul className="list-disc pl-5 text-xs space-y-1">
+                <li><strong>2022</strong> vs. All other years (2018-2021, 2023-2026) (adj. p &le; 0.0001)</li>
+                <li><strong>2018</strong> vs. 2019, 2020, 2021, 2023, 2024, 2025 (adj. p &lt; 0.02)</li>
+                <li><strong>2026</strong> vs. 2019, 2020, 2024, 2025 (adj. p &lt; 0.02)</li>
+              </ul>
+            </div>
           </div>
 
           {/* Hypothesis 3 */}
-          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
             <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 3: Commodity Differences</h3>
             <div className="text-sm text-gray-700 space-y-2 mb-4">
               <p><strong>H₀:</strong> There is no difference in commodity group CPI rates of change across Philippine Regions.</p>
               <p><strong>H₁:</strong> There are significant differences in commodity group CPI rates of change across Philippine Regions.</p>
             </div>
-            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800 flex-grow">
               <p>Test: Kruskal-Wallis H-test (Top 10 Volatile Commodities)</p>
-              <p>H-Statistics: Ranged from 0.005 to 53.65</p>
-              <p>P-Values: Ranged from 0.877 to 1.000</p>
+              <p className="mt-1">Significant Variations Found In:</p>
+              <ul className="list-disc pl-5 mt-1 text-xs">
+                <li>Restaurants & Accommodation (p = 1.13e-17)</li>
+                <li>Recreation, Sport & Culture (p = 1.65e-16)</li>
+                <li>Alcoholic Beverages & Tobacco (p = 4.42e-08)</li>
+                <li>Health (p = 6.53e-08)</li>
+                <li>Furnishings & Routine Maintenance (p = 3.65e-07)</li>
+              </ul>
             </div>
-            <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 font-medium text-sm">
-              Verdict: Fail to reject H₀. There is no difference in commodity group CPI rates of change across Philippine Regions.
+            <div className="mt-4 p-3 bg-green-50 border-l-4 border-green-500 text-green-700 font-medium text-sm">
+              Verdict: Reject H₀. There are significant differences in commodity group CPI rates of change across Philippine Regions.
+            </div>
+            {/* Dunn's Test Results for H3 */}
+            <div className="mt-4 p-3 bg-purple-50 border border-purple-200 rounded text-sm text-purple-900">
+              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni):</p>
+              <p className="text-xs mb-1">Pairwise regional differences by commodity group:</p>
+              <ul className="list-disc pl-5 text-xs space-y-1">
+                <li><strong>01 - Food and Non-Alcoholic Beverages:</strong> 0 statistically significant pairwise regional differences found.</li>
+                <li><strong>02 - Alcoholic Beverages and Tobacco:</strong> Found 8 statistically significant pairwise regional differences.</li>
+                <li><strong>03 - Clothing and Footwear:</strong> Found 34 statistically significant pairwise regional differences.</li>
+                <li><strong>04 - Housing, Water, Electricity, Gas, and Other Fuels:</strong> 0 statistically significant pairwise regional differences found.</li>
+                <li><strong>05 - Furnishings, Household Equipment and Routine Household Maintenance:</strong> Found 9 statistically significant pairwise regional differences.</li>
+                <li><strong>06 - Health:</strong> Found 13 statistically significant pairwise regional differences.</li>
+                <li><strong>07 - Transport:</strong> 0 statistically significant pairwise regional differences found.</li>
+                <li><strong>08 - Information and Communication:</strong> 0 statistically significant pairwise regional differences found.</li>
+                <li><strong>09 - Recreation, Sport and Culture:</strong> Found 29 statistically significant pairwise regional differences.</li>
+                <li><strong>10 - Education Services:</strong> 0 statistically significant pairwise regional differences found.</li>
+                <li><strong>11 - Restaurants and Accommodation Services:</strong> Found 32 statistically significant pairwise regional differences.</li>
+                <li><strong>12 - Financial Services:</strong> 0 statistically significant pairwise regional differences found.</li>
+                <li><strong>13 - Personal Care, and Miscellaneous Goods and Services:</strong> Found 14 statistically significant pairwise regional differences.</li>
+              </ul>
             </div>
           </div>
 
           {/* Hypothesis 4 */}
-          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
             <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 4: Seasonality</h3>
             <div className="text-sm text-gray-700 space-y-2 mb-4">
               <p><strong>H₀:</strong> There are no recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
               <p><strong>H₁:</strong> There are recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
             </div>
-            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
-              <p>Test: Kruskal-Wallis H-test (Grouped by Month)</p>
-              <p>H-Statistic: 288.8594</p>
-              <p>P-Value: 1.941e-55</p>
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800 flex-grow">
+              <p>Test: Kruskal-Wallis per Commodity Group</p>
+              <p>Correction: Benjamini-Hochberg (FDR)</p>
+              <p className="mt-1">Seasonally Significant Commodities:</p>
+              <ul className="list-disc pl-5 mt-1 text-xs">
+                <li>Food & Non-Alcoholic Beverages (adj. p = 0.0014)</li>
+                <li>Education Services (adj. p = 0.0014)</li>
+                <li>Recreation, Sport & Culture (adj. p = 0.0154)</li>
+                <li>Health (adj. p = 0.0207)</li>
+              </ul>
             </div>
             <div className="mt-4 p-3 bg-green-50 border-l-4 border-green-500 text-green-700 font-medium text-sm">
-              Verdict: Reject H₀. There are recurring seasonal patterns across months.
+              Verdict: Partial Reject H₀. Significant recurring seasonal patterns exist, but only within specific commodity groups.
+            </div>
+            {/* Dunn's Test Results for H4 */}
+            <div className="mt-4 p-3 bg-purple-50 border border-purple-200 rounded text-sm text-purple-900 max-h-64 overflow-y-auto">
+              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni):</p>
+              <p className="text-xs mb-2">Significant monthly pairwise differences for seasonal commodities:</p>
+              <ul className="list-disc pl-5 text-xs space-y-3">
+                <li>
+                  <strong>01 - Food & Non-Alcoholic Beverages:</strong> 4 significant monthly seasonal transitions found.
+                  <ul className="list-[circle] pl-5 mt-1 space-y-1 text-purple-800">
+                    <li>January vs. February (adj. p = 0.0021)</li>
+                    <li>January vs. March (adj. p = 0.0027)</li>
+                    <li>February vs. December (adj. p = 0.0348)</li>
+                    <li>March vs. December (adj. p = 0.0429)</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>06 - Health:</strong> 2 significant monthly seasonal transitions found.
+                  <ul className="list-[circle] pl-5 mt-1 space-y-1 text-purple-800">
+                    <li>January vs. October (adj. p = 0.0208)</li>
+                    <li>July vs. October (adj. p = 0.0047)</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>09 - Recreation, Sport and Culture:</strong> 1 significant monthly seasonal transition found.
+                  <ul className="list-[circle] pl-5 mt-1 space-y-1 text-purple-800">
+                    <li>February vs. March (adj. p = 0.0070)</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>10 - Education Services:</strong> 0 statistically significant monthly seasonal transitions found post-hoc (all adj. p &gt; 0.05).
+                </li>
+              </ul>
             </div>
           </div>
-
-        </div>
+         </div> 
       </section>
     </main>
   );
