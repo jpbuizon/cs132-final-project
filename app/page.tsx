@@ -1,5 +1,6 @@
 import { IceCream } from "lucide-react"
 import Link from "next/link";
+import Image from "next/image";
 
 export default function PortfolioPage() {
   return (
@@ -181,11 +182,14 @@ export default function PortfolioPage() {
             <h4 className="text-lg font-medium mb-2 text-center ">
               Monthly Inflation Velocity (CPI % Change) - Selected Individual Regions (2018-2026)
             </h4>
-            <img 
+            <div className="w-full relative h-[300px]">
+            <Image
               src="/rq1-line-chart.jpg" 
               alt="Line chart showing monthly inflation velocity across regions" 
-              className="w-full h-auto rounded"
+              fill
+              objectFit="contain"
             />
+            </div>
             <p className="text-sm text-gray-500 mt-3 text-center">
               Figure 1: Time-series analysis of month-over-month CPI percentage changes across administrative regions.
             </p>
@@ -195,11 +199,15 @@ export default function PortfolioPage() {
             <h4 className="text-lg font-medium mb-2 text-center ">
               Top 5 Highest and Lowest Regions by Average MoM Inflation Velocity
             </h4>
-            <img 
+
+            <div className="w-full relative h-[300px]">
+            <Image
               src="/rq1-bar-chart.jpg" 
-              alt="Bar chart showing top 5 highest and lowest regions by average MoM inflation velocity" 
-              className="w-full h-auto rounded"
+              alt="Line chart showing monthly inflation velocity across regions" 
+              fill
+              objectFit="contain"
             />
+            </div>
             <p className="text-sm text-gray-500 mt-3 text-center">
               Figure 2: A horizontal bar chart highlighting the geographic areas with the most and least volatile average inflation velocities.
             </p>
@@ -218,11 +226,15 @@ export default function PortfolioPage() {
             <h4 className="text-lg font-medium mb-2 text-center ">
               Regional Inflation Drivers: Average MoM Velocity by Major Commodity Group
             </h4>
-            <img 
+            
+            <div className="w-full relative h-[300px]">
+            <Image
               src="/rq2-heatmap-drivers.jpg" 
-              alt="Heatmap displaying regional inflation drivers by average MoM velocity across commodity groups" 
-              className="w-full h-auto rounded"
+              alt="Line chart showing monthly inflation velocity across regions" 
+              fill
+              objectFit="contain"
             />
+            </div>
             <p className="text-sm text-gray-500 mt-3 text-center">
               Figure 3: Heatmap illustrating which commodity groups (e.g., Food, Transport) act as the primary drivers of month-over-month inflation within specific regions.
             </p>
@@ -241,11 +253,16 @@ export default function PortfolioPage() {
               <h4 className="text-lg font-medium mb-2 text-center ">
                 Seasonality Heatmap: Average Monthly Inflation Velocity by Commodity Group
               </h4>
-              <img 
-                src="/rq3-heatmap-seasonality.jpg" 
-                alt="Heatmap displaying average monthly inflation velocity by commodity group across the calendar year" 
-                className="w-full h-auto rounded"
-              />
+
+
+            <div className="w-full relative h-[300px]">
+            <Image
+              src="/rq3-heatmap-seasonality.jpg" 
+              alt="Line chart showing monthly inflation velocity across regions" 
+              fill
+              objectFit="contain"
+            />
+            </div>
               <p className="text-sm text-gray-500 mt-3 text-center">
                 Figure 4: Average MoM % change organized by calendar month to identify recurring seasonal price spikes across different commodity groups.
               </p>
@@ -255,11 +272,16 @@ export default function PortfolioPage() {
               <h4 className="text-lg font-medium mb-2 text-center ">
                 Outlier-Resistant Seasonality Heatmap (Ordered by Seasonality Strength)
               </h4>
-              <img 
-                src="/rq3-heatmap-seasonality-outlier.jpg" 
-                alt="Outlier-resistant seasonality heatmap ordered by seasonality strength" 
-                className="w-full h-auto rounded"
-              />
+
+
+            <div className="w-full relative h-[300px]">
+            <Image
+              src="/rq3-heatmap-seasonality-outlier.jpg" 
+              alt="Line chart showing monthly inflation velocity across regions" 
+              fill
+              objectFit="contain"
+            />
+            </div>
               <p className="text-sm text-gray-500 mt-3 text-center">
                 Figure 5: A median-based seasonality heatmap that mitigates the effect of extreme outliers, sorted vertically from most seasonal to least seasonal commodity groups.
               </p>
@@ -280,11 +302,15 @@ export default function PortfolioPage() {
               <h4 className="text-lg font-medium mb-2 text-center ">
                 Inflation Velocity Extremes (Lowest and Highest 5 MoM Changes)
               </h4>
-              <img 
-                src="/rq4-extremes-bar-chart.jpg" 
-                alt="Bar charts showing the top 5 highest and lowest time periods for inflation velocity" 
-                className="w-full h-auto rounded"
-              />
+
+            <div className="w-full relative h-[600px]">
+            <Image
+              src="/rq4-extremes-bar-chart.jpg" 
+              alt="Line chart showing monthly inflation velocity across regions" 
+              fill
+              objectFit="contain"
+            />
+            </div>
               <p className="text-sm text-gray-500 mt-3 text-center">
                 Figure 7: Dual bar charts isolating the specific time periods (months/years) that recorded the highest and lowest inflation spikes, split between the national aggregate and global dataset extremes.
               </p>
@@ -302,11 +328,15 @@ export default function PortfolioPage() {
             <h4 className="text-lg font-medium mb-2 text-center ">
               Normality Test & Distribution overview
             </h4>
-            <img 
+
+            <div className="w-full relative h-[600px]">
+            <Image
               src="/nutshell.png" 
-              alt="Histogram and Q-Q plot showing the non-normal distribution of inflation velocity" 
-              className="w-full h-auto rounded"
+              alt="Line chart showing monthly inflation velocity across regions" 
+              fill
+              objectFit="contain"
             />
+            </div>
             <p className="text-sm text-gray-500 mt-3 text-center">
               Figure 1 (Nutshell Plot): CPI % Change over time across multiple regions with annotated peak rates.
             </p>
