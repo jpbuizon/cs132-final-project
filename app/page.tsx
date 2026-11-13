@@ -15,7 +15,8 @@ export default function PortfolioPage() {
           <Link href="#overview" className="hover:text-highlight/[80%] transition-basic">Project Overview</Link>
           <Link href="#data" className="hover:text-highlight/[80%] transition-basic">Dataset</Link>
           <Link href="#eda" className="hover:text-highlight/[80%] transition-basic">EDA</Link>
-          <Link href="#hypotest" className="hover:text-highlight/[80%] transition-basic">Hypothesis Testing</Link>
+          <Link href="#hypotest" className="hover:text-highlight/[80%] transition-basic">Hypotheses Testing</Link>
+          <Link href="#discussion" className="hover:text-highlight/[80%] transition-basic">Results & Discussion</Link>
         </div>
         <span className="text-xs">Bugaoan, Buizon, Calinawan, Magpantay</span>
       </div>
@@ -46,12 +47,12 @@ export default function PortfolioPage() {
         </h2>
 
         <h3 className="text-xl font-medium mt-6 mb-2">Background</h3>
-        <p className="mb-4 dark:text-gray-300 text-gray-700">
+        <p className="mb-4 dark:text-gray-300 ">
           The Consumer Price Index (CPI) serves as a relative measure of the cost of a standard basket of goods and services consumed by households. Calculated as a weighted average of these prices, the CPI establishes a baseline value of 100 for its starting year (2018). Tracking movements in regional CPI allows for a quantitative assessment of inflation, regional purchasing power disparities, and shifting costs of living across the Philippines.
         </p>
 
         <h3 className="text-xl font-medium mt-6 mb-2">Research Questions & Problems</h3>
-        <ul className="list-disc pl-6 mb-4 dark:text-gray-300 text-gray-700 space-y-2">
+        <ul className="list-disc pl-6 mb-4 dark:text-gray-300  space-y-2">
           <li>Which Philippine regions have the highest and lowest rates of change in CPI?</li>
           <li>Which specific commodities have significantly differing CPI rates of change across Philippine regions?</li>
           <li>Are there recurring seasonal patterns of prices of particular commodity groups?</li>
@@ -59,10 +60,10 @@ export default function PortfolioPage() {
         </ul>
 
         <h3 className="text-xl font-medium mt-6 mb-2">Research Objectives & Proposed Solutions</h3>
-        <p className="mb-3 dark:text-gray-300 text-gray-700">
+        <p className="mb-3 dark:text-gray-300 ">
           To address these questions, this study will analyze historical monthly CPI data extracted from national statistical repositories using statistical analysis and exploratory data modeling. The core objectives are:
         </p>
-        <ul className="list-disc pl-6 mb-4 dark:text-gray-300 text-gray-700 space-y-2">
+        <ul className="list-disc pl-6 mb-4 dark:text-gray-300  space-y-2">
           <li>Determine if geographic location is a significant factor for inflation rates, identifying which regions experience the fastest and slowest inflation rates from 2018 to 1st Quarter 2026.</li>
           <li>Identify which specific commodity groups serve as primary drivers of CPI per region.</li>
           <li>Determine if there are recurring seasonal patterns in the prices of certain commodity groups across regions.</li>
@@ -70,7 +71,7 @@ export default function PortfolioPage() {
         </ul>
 
         <h3 className="text-xl font-medium mt-6 mb-2">Hypotheses</h3>
-        <div className="space-y-4 text-gray-700">
+        <div className="space-y-4 text-gray-600">
           <div className="bg-gray-50 p-3 rounded border border-gray-200">
             <p><strong>Hypothesis 1 (Regional Variation):</strong></p>
             <p><strong>H₀:</strong> There is no difference between the CPI rates of change across different Philippine regions.</p>
@@ -121,7 +122,7 @@ export default function PortfolioPage() {
         */}
 
         <h3 className="text-xl font-medium mt-4 mb-2">Dataset Description & Scope</h3>
-        <ul className="list-disc pl-6 mb-4 dark:text-gray-300 text-gray-700 space-y-1">
+        <ul className="list-disc pl-6 mb-4 dark:text-gray-300  space-y-1">
           <li><strong>Source:</strong> OpenStat — Philippine Statistics Authority (PSA)</li>
           <li><strong>Temporal Scope:</strong> January 2018 to 1st Quarter 2026</li>
           <li><strong>Baseline Year:</strong> 2018 = 100</li>
@@ -129,7 +130,7 @@ export default function PortfolioPage() {
         </ul>
 
         <h3 className="text-xl font-medium mt-4 mb-2">PSA Collection Methodology & Sampling</h3>
-        <ul className="list-disc pl-6 mb-4 dark:text-gray-300 text-gray-700 space-y-2">
+        <ul className="list-disc pl-6 mb-4 dark:text-gray-300  space-y-2">
           <li>
             <strong>Market Basket Selection:</strong> The PSA tracks a specific "market basket" of goods and services that are regularly consumed by average households and consistently available in the target area.
           </li>
@@ -148,11 +149,11 @@ export default function PortfolioPage() {
         </ul>
 
         <h3 className="text-xl font-medium mt-4 mb-2">Preprocessing & Data Structure</h3>
-        <p className="mb-4 dark:text-gray-300 text-gray-700">
-          The extracted dataset contains multi-index time-series rows organized by geographic location (National, NCR, and Areas Outside NCR / individual administrative regions) and commodity breakdown (All-Items, Food and Non-Alcoholic Beverages, Cereals, etc.) across monthly intervals. Preprocessing steps will include reshaping wide monthly columns into long format, checking for missing entries across administrative shifts, and calculating period-over-period percentage changes to measure inflation velocity.
+        <p className="mb-4 dark:text-gray-300 ">
+          The extracted dataset contains multi-index time-series rows organized by geographic location (National, NCR, and Areas Outside NCR / individual administrative regions) and commodity breakdown (All-Items, Food and Non-Alcoholic Beverages, Cereals, etc.) across monthly intervals. To preprocess the data, the dataset was transformed from a wide dataset to a long dataset by creating a new column for Date and having each individual CPI value mapped to the unique 3-tuple (Geolocation, Commodity Description, Date). A derived feature (Inflation_Velocity_Pct) was calculated as the CPI percent change using the pct_change pandas function.
         </p>
 
-        <p className="mb-4 dark:text-gray-300 text-gray-700">
+        <p className="mb-4 dark:text-gray-300 ">
           The full dataset extracted from PSA OpenStat is structured in the linked <a target="_blank" className="hover:underline text-blue-600" href="https://docs.google.com/spreadsheets/d/1y2uXdRVz_6OgY_Tpw0D_Xo4CNo-W4QW6uuOzUe6kRF8/edit?usp=sharing">Google Sheet</a>.
         </p>
 
@@ -167,15 +168,17 @@ export default function PortfolioPage() {
         <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
           Exploratory Data Analysis
         </h2>
+
+        <p>In this section, data visualizations were created for each research question using the preprocessed dataset. These visualizations helped in our explanation of our results in the Hypotheses Testing section.</p>
         
         {/* Research Question 1 */}
         <div className="mb-10">
-          <h3 className="text-xl font-medium mb-4 text-blue-800">
+          <h3 className="text-xl font-medium mb-4 ">
             RQ1: Which Philippine regions have the highest and lowest rates of change in CPI?
           </h3>
-          
+          <div className="flex flex-row w-full gap-6">
           <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-6">
-            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+            <h4 className="text-lg font-medium mb-2 text-center ">
               Monthly Inflation Velocity (CPI % Change) - Selected Individual Regions (2018-2026)
             </h4>
             <img 
@@ -189,7 +192,7 @@ export default function PortfolioPage() {
           </div>
 
           <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+            <h4 className="text-lg font-medium mb-2 text-center ">
               Top 5 Highest and Lowest Regions by Average MoM Inflation Velocity
             </h4>
             <img 
@@ -201,16 +204,18 @@ export default function PortfolioPage() {
               Figure 2: A horizontal bar chart highlighting the geographic areas with the most and least volatile average inflation velocities.
             </p>
           </div>
+          </div>
         </div>
 
         {/* Research Question 2 */}
         <div className="mb-10 mt-10">
-          <h3 className="text-xl font-medium mb-4 text-blue-800">
+          <h3 className="text-xl font-medium mb-4 ">
             RQ2: Which specific commodities have significantly differing CPI rates of change across Philippine regions?
           </h3>
+            <div className="max-w-[800px]">
           
           <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+            <h4 className="text-lg font-medium mb-2 text-center ">
               Regional Inflation Drivers: Average MoM Velocity by Major Commodity Group
             </h4>
             <img 
@@ -223,16 +228,17 @@ export default function PortfolioPage() {
             </p>
           </div>
         </div>
+            </div>
 
         {/* Research Question 3 */}
         <div className="mb-10 mt-10">
-          <h3 className="text-xl font-medium mb-4 text-blue-800">
+          <h3 className="text-xl font-medium mb-4 ">
             RQ3: Are there recurring seasonal patterns of prices of particular commodity groups?
           </h3>
           
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-2 gap-6">
             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              <h4 className="text-lg font-medium mb-2 text-center ">
                 Seasonality Heatmap: Average Monthly Inflation Velocity by Commodity Group
               </h4>
               <img 
@@ -246,7 +252,7 @@ export default function PortfolioPage() {
             </div>
 
             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              <h4 className="text-lg font-medium mb-2 text-center ">
                 Outlier-Resistant Seasonality Heatmap (Ordered by Seasonality Strength)
               </h4>
               <img 
@@ -263,27 +269,15 @@ export default function PortfolioPage() {
 
         {/* Research Question 4 */}
         <div className="mb-10 mt-10">
-          <h3 className="text-xl font-medium mb-4 text-blue-800">
+          <h3 className="text-xl font-medium mb-4 ">
             RQ4: Which time periods have the lowest and highest rates of change in CPI?
           </h3>
           
           <div className="grid grid-cols-1 gap-6">
-            <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
-                Monthly Inflation Velocity (CPI % Change) - All Items (2018-2026)
-              </h4>
-              <img 
-                src="//rq1-bar-chart.jpg" 
-                alt="Line chart showing macro monthly inflation velocity for NCR, AONCR, and National levels" 
-                className="w-full h-auto rounded"
-              />
-              <p className="text-sm text-gray-500 mt-3 text-center">
-                Figure 6: A macro-level time-series line chart comparing the month-over-month inflation velocities between Philippine regions.
-              </p>
-            </div>
+            
 
             <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              <h4 className="text-lg font-medium mb-2 text-center ">
                 Inflation Velocity Extremes (Lowest and Highest 5 MoM Changes)
               </h4>
               <img 
@@ -300,21 +294,21 @@ export default function PortfolioPage() {
 
         {/* Nutshell Plot */}
         <div className="mb-12">
-          <h3 className="text-xl font-medium mb-4 text-blue-800">
+          <h3 className="text-xl font-medium mb-4 ">
             Nutshell Plot: Overall Distribution of Inflation Velocity
           </h3>
           
           <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
-            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+            <h4 className="text-lg font-medium mb-2 text-center ">
               Normality Test & Distribution overview
             </h4>
             <img 
-              src="/nutshell-plot.png" 
+              src="/nutshell.png" 
               alt="Histogram and Q-Q plot showing the non-normal distribution of inflation velocity" 
               className="w-full h-auto rounded"
             />
             <p className="text-sm text-gray-500 mt-3 text-center">
-              Figure 1 (Nutshell Plot): A macro-level view of our primary variable. The distribution histogram and Q-Q plot, alongside D'Agostino's K-squared test (p-value: 0.0), demonstrate a highly leptokurtic, non-normal distribution. This fundamental characteristic informs the statistical approaches required for subsequent hypothesis testing.
+              Figure 1 (Nutshell Plot): CPI % Change over time across multiple regions with annotated peak rates.
             </p>
           </div>
         </div>
@@ -328,7 +322,7 @@ export default function PortfolioPage() {
         <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
           Hypotheses Testing
         </h2>
-        <p className="mb-6 text-gray-700">
+        <p className="mb-6 ">
           Due to the non-normal distribution of our inflation velocity data, we utilized the Kruskal-Wallis H-test (a non-parametric equivalent to ANOVA) across all hypotheses to determine statistical significance at an alpha level of 0.05.
         </p>
 
@@ -336,8 +330,8 @@ export default function PortfolioPage() {
           
           {/* Hypothesis 1 */}
           <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
-            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 1: Regional Variation</h3>
-            <div className="text-sm text-gray-700 space-y-2 mb-4">
+            <h3 className="text-lg font-bold  mb-3">Hypothesis 1: Regional Variation</h3>
+            <div className="text-sm  space-y-2 mb-4">
               <p><strong>H₀:</strong> There is no difference between the CPI rates of change across different Philippine regions.</p>
               <p><strong>H₁:</strong> There are significant differences in the CPI rates of change across different Philippine regions.</p>
             </div>
@@ -353,8 +347,8 @@ export default function PortfolioPage() {
 
           {/* Hypothesis 2 */}
           <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
-            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 2: Temporal Variation</h3>
-            <div className="text-sm text-gray-700 space-y-2 mb-4">
+            <h3 className="text-lg font-bold  mb-3">Hypothesis 2: Temporal Variation</h3>
+            <div className="text-sm  space-y-2 mb-4">
               <p><strong>H₀:</strong> There are no time periods of significantly different rates of change for CPI.</p>
               <p><strong>H₁:</strong> There are time periods of significantly different rates of change for CPI.</p>
             </div>
@@ -368,7 +362,7 @@ export default function PortfolioPage() {
             </div>
             {/* Dunn's Test Results for H2 */}
             <div className="mt-4 p-3 bg-purple-50 border border-purple-200 rounded text-sm text-purple-900">
-              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni):</p>
+              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni correction):</p>
               <p className="text-xs mb-1">Significant temporal differences (adj. p &lt; 0.05) include:</p>
               <ul className="list-disc pl-5 text-xs space-y-1">
                 <li><strong>2022</strong> vs. All other years (2018-2021, 2023-2026) (adj. p &le; 0.0001)</li>
@@ -380,8 +374,8 @@ export default function PortfolioPage() {
 
           {/* Hypothesis 3 */}
           <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
-            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 3: Commodity Differences</h3>
-            <div className="text-sm text-gray-700 space-y-2 mb-4">
+            <h3 className="text-lg font-bold  mb-3">Hypothesis 3: Commodity Differences</h3>
+            <div className="text-sm  space-y-2 mb-4">
               <p><strong>H₀:</strong> There is no difference in commodity group CPI rates of change across Philippine Regions.</p>
               <p><strong>H₁:</strong> There are significant differences in commodity group CPI rates of change across Philippine Regions.</p>
             </div>
@@ -401,7 +395,7 @@ export default function PortfolioPage() {
             </div>
             {/* Dunn's Test Results for H3 */}
             <div className="mt-4 p-3 bg-purple-50 border border-purple-200 rounded text-sm text-purple-900">
-              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni):</p>
+              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni correction):</p>
               <p className="text-xs mb-1">Pairwise regional differences by commodity group:</p>
               <ul className="list-disc pl-5 text-xs space-y-1">
                 <li><strong>01 - Food and Non-Alcoholic Beverages:</strong> 0 statistically significant pairwise regional differences found.</li>
@@ -423,8 +417,8 @@ export default function PortfolioPage() {
 
           {/* Hypothesis 4 */}
           <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm flex flex-col">
-            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 4: Seasonality</h3>
-            <div className="text-sm text-gray-700 space-y-2 mb-4">
+            <h3 className="text-lg font-bold  mb-3">Hypothesis 4: Seasonality</h3>
+            <div className="text-sm  space-y-2 mb-4">
               <p><strong>H₀:</strong> There are no recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
               <p><strong>H₁:</strong> There are recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
             </div>
@@ -444,7 +438,7 @@ export default function PortfolioPage() {
             </div>
             {/* Dunn's Test Results for H4 */}
             <div className="mt-4 p-3 bg-purple-50 border border-purple-200 rounded text-sm text-purple-900 max-h-64 overflow-y-auto">
-              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni):</p>
+              <p className="font-bold mb-2">Post-Hoc Analysis (Dunn's Test w/ Holm-Bonferroni correction):</p>
               <p className="text-xs mb-2">Significant monthly pairwise differences for seasonal commodities:</p>
               <ul className="list-disc pl-5 text-xs space-y-3">
                 <li>
@@ -476,6 +470,15 @@ export default function PortfolioPage() {
             </div>
           </div>
          </div> 
+      </section>
+
+      {/* Discussion Section */}
+      <section className="relative mb-12 px-4 md:px-6 py-4">
+        <div className="absolute -top-[72px]" id="discussion"/>
+        <h2 className="text-2xl font-semibold mb-4 border-b-1 border-border pb-2">
+          Results & Discussion
+        </h2>
+        <p>Discussion of results! To be done for final submission. Based off of the EDA and hypotheses testing.</p>
       </section>
     </main>
   );
