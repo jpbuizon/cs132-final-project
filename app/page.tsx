@@ -239,6 +239,146 @@ export default function PortfolioPage() {
             </div>
           </div>
         </div>
+
+        {/* Research Question 4 */}
+        <div className="mb-10 mt-10">
+          <h3 className="text-xl font-medium mb-4 text-blue-800">
+            RQ4: Which time periods have the lowest and highest rates of change in CPI?
+          </h3>
+          
+          <div className="grid grid-cols-1 gap-6">
+            <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+                Monthly Inflation Velocity (CPI % Change) - All Items (2018-2026)
+              </h4>
+              <img 
+                src="/rq4-macro-line-chart.png" 
+                alt="Line chart showing macro monthly inflation velocity for NCR, AONCR, and National levels" 
+                className="w-full h-auto rounded"
+              />
+              <p className="text-sm text-gray-500 mt-3 text-center">
+                Figure 6: A macro-level time-series line chart comparing the month-over-month inflation velocities between the National Capital Region (NCR), Areas Outside NCR (AONCR), and the overall Philippine national average.
+              </p>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+              <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+                Inflation Velocity Extremes (Lowest and Highest 5 MoM Changes)
+              </h4>
+              <img 
+                src="/rq4-extremes-bar-chart.png" 
+                alt="Bar charts showing the top 5 highest and lowest time periods for inflation velocity" 
+                className="w-full h-auto rounded"
+              />
+              <p className="text-sm text-gray-500 mt-3 text-center">
+                Figure 7: Dual bar charts isolating the specific time periods (months/years) that recorded the highest and lowest inflation spikes, split between the national aggregate and global dataset extremes.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Nutshell Plot */}
+        <div className="mb-12">
+          <h3 className="text-xl font-medium mb-4 text-blue-800">
+            Nutshell Plot: Overall Distribution of Inflation Velocity
+          </h3>
+          
+          <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+            <h4 className="text-lg font-medium mb-2 text-center text-gray-700">
+              Normality Test & Distribution overview
+            </h4>
+            <img 
+              src="/nutshell-plot.png" 
+              alt="Histogram and Q-Q plot showing the non-normal distribution of inflation velocity" 
+              className="w-full h-auto rounded"
+            />
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              Figure 1 (Nutshell Plot): A macro-level view of our primary variable. The distribution histogram and Q-Q plot, alongside D'Agostino's K-squared test (p-value: 0.0), demonstrate a highly leptokurtic, non-normal distribution. This fundamental characteristic informs the statistical approaches required for subsequent hypothesis testing.
+            </p>
+          </div>
+        </div>
+
+        {/* 5. Hypotheses Testing Section */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold mb-6 border-b-2 border-gray-200 pb-2">
+          5. Hypotheses Testing
+        </h2>
+        <p className="mb-6 text-gray-700">
+          Due to the non-normal distribution of our inflation velocity data, we utilized the Kruskal-Wallis H-test (a non-parametric equivalent to ANOVA) across all hypotheses to determine statistical significance at an alpha level of 0.05.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Hypothesis 1 */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 1: Regional Variation</h3>
+            <div className="text-sm text-gray-700 space-y-2 mb-4">
+              <p><strong>H₀:</strong> There is no difference between the CPI rates of change across different Philippine regions.</p>
+              <p><strong>H₁:</strong> There are significant differences in the CPI rates of change across different Philippine regions.</p>
+            </div>
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+              <p>Test: Kruskal-Wallis H-test</p>
+              <p>H-Statistic: 46.7930</p>
+              <p>P-Value: 0.9999999996959154</p>
+            </div>
+            <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 font-medium text-sm">
+              Verdict: Fail to reject H₀. No significant difference across regions.
+            </div>
+          </div>
+
+          {/* Hypothesis 2 */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 2: Temporal Variation</h3>
+            <div className="text-sm text-gray-700 space-y-2 mb-4">
+              <p><strong>H₀:</strong> There are no time periods of significantly different rates of change for CPI.</p>
+              <p><strong>H₁:</strong> There are time periods of significantly different rates of change for CPI.</p>
+            </div>
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+              <p>Test: Kruskal-Wallis H-test (Grouped by Year)</p>
+              <p>H-Statistic: 745.6781</p>
+              <p>P-Value: 1.042e-155</p>
+            </div>
+            <div className="mt-4 p-3 bg-green-50 border-l-4 border-green-500 text-green-700 font-medium text-sm">
+              Verdict: Reject H₀. There are time periods with significantly different rates of change.
+            </div>
+          </div>
+
+          {/* Hypothesis 3 */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 3: Commodity Differences</h3>
+            <div className="text-sm text-gray-700 space-y-2 mb-4">
+              <p><strong>H₀:</strong> There is no difference in commodity group CPI rates of change across Philippine Regions.</p>
+              <p><strong>H₁:</strong> There are significant differences in commodity group CPI rates of change across Philippine Regions.</p>
+            </div>
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+              <p>Test: Kruskal-Wallis H-test (Top 10 Volatile Commodities)</p>
+              <p>H-Statistics: Ranged from 0.005 to 53.65</p>
+              <p>P-Values: Ranged from 0.877 to 1.000</p>
+            </div>
+            <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 text-red-700 font-medium text-sm">
+              Verdict: Fail to reject H₀. There is no difference in commodity group CPI rates of change across Philippine Regions.
+            </div>
+          </div>
+
+          {/* Hypothesis 4 */}
+          <div className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+            <h3 className="text-lg font-bold text-blue-800 mb-3">Hypothesis 4: Seasonality</h3>
+            <div className="text-sm text-gray-700 space-y-2 mb-4">
+              <p><strong>H₀:</strong> There are no recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
+              <p><strong>H₁:</strong> There are recurring seasonal patterns in commodity group CPI prices across Philippine Regions.</p>
+            </div>
+            <div className="bg-gray-50 p-3 rounded text-sm font-mono text-gray-800">
+              <p>Test: Kruskal-Wallis H-test (Grouped by Month)</p>
+              <p>H-Statistic: 288.8594</p>
+              <p>P-Value: 1.941e-55</p>
+            </div>
+            <div className="mt-4 p-3 bg-green-50 border-l-4 border-green-500 text-green-700 font-medium text-sm">
+              Verdict: Reject H₀. There are recurring seasonal patterns across months.
+            </div>
+          </div>
+
+        </div>
+      </section>
       </section>
     </main>
   );
